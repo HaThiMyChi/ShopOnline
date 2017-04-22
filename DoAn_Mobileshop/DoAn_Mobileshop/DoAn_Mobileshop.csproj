@@ -186,6 +186,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\MainAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhaSanXuatController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaiSanPhamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiSanPhamController.cs" />
@@ -211,8 +215,13 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Asset\images\2.png" />
+    <Content Include="Asset\images\abc.png" />
     <Content Include="Asset\images\banner.png" />
+    <Content Include="Asset\images\banner01.png" />
     <Content Include="Asset\images\banner1.png" />
+    <Content Include="Asset\images\buynow.png" />
+    <Content Include="Asset\images\moi.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
@@ -229,6 +238,9 @@
     <Content Include="Models\Generated\PetaPoco.Generator.ttinclude" />
     <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_MainLayoutAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuat\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MainAdmin\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -287,9 +299,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\LoaiSanPham\" />
+    <Folder Include="Areas\Admin\Views\SanPham\" />
+    <Folder Include="Areas\Asset_Admin\bootstrap\" />
+    <Folder Include="Areas\Asset_Admin\css\" />
+    <Folder Include="Areas\Asset_Admin\font-awesome\" />
+    <Folder Include="Areas\Asset_Admin\js\" />
     <Folder Include="Asset\css\" />
     <Folder Include="Asset\font-awesome\" />
     <Folder Include="Asset\fonts\" />
