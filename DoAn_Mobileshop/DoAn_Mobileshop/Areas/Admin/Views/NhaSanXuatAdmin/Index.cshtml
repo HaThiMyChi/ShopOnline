@@ -42,8 +42,8 @@
                 <td>@item.MaNhaSanXuat</td>
                 <td>@item.TenNhaSanXuat</td>
                 <td>@item.BiXoa</td>
-                <td><img src="~/images/products/edit.png" /></td>
-                <td><img src="~/images/products/Close.png" /></td>
+                <td><a href="@Url.Action("Edit","NhaSanXuatAdmin", new { id = @item.MaNhaSanXuat})"><img src="~/images/products/edit.png" /></a></td>
+                <td><a href="@Url.Action("XoaTam","NhaSanXuatAdmin", new { id = @item.MaNhaSanXuat})"><img src="~/images/products/Close.png" /></a> </td>
             </tr>
         }
        

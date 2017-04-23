@@ -13,7 +13,7 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
         // GET: Admin/NhaSanXuatAdmin
         public ActionResult Index()
         {
-            var ds = NhaSanXuatBUS.DanhSach();
+            var ds = NhaSanXuatBUS.DanhSachAdmin();
 
             return View(ds);
         }
@@ -51,16 +51,17 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
         // GET: Admin/NhaSanXuatAdmin/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(NhaSanXuatBUS.ChiTietAdmin(id));
         }
 
         // POST: Admin/NhaSanXuatAdmin/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, NhaSanXuat nsx)
         {
             try
             {
                 // TODO: Add update logic here
+                NhaSanXuatBUS.UpdateNhaSanXuat(id, nsx);
 
                 return RedirectToAction("Index");
             }
@@ -68,6 +69,11 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult XoaTam(int id)
+        {
+            return View(NhaSanXuatBUS.ChiTietAdmin(id));
         }
 
         // GET: Admin/NhaSanXuatAdmin/Delete/5
@@ -78,12 +84,28 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
 
         // POST: Admin/NhaSanXuatAdmin/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult XoaTam(int id, NhaSanXuat nsx)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+             
+                NhaSanXuatBUS.UpdateNhaSanXuat(id, nsx);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Delete(int id, FormCollection  collection)
         {
             try
             {
                 // TODO: Add delete logic here
 
+               
                 return RedirectToAction("Index");
             }
             catch
