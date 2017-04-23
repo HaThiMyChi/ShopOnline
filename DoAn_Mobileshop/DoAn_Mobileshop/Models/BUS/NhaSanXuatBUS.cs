@@ -21,5 +21,11 @@ namespace DoAn_Mobileshop.Models.BUS
             return db.Query<SanPham>("select * from SanPham where MaNhaSanXuat = @0", id);
 
         }
+
+        public static void ThemNSX(NhaSanXuat nsx)
+        {
+            var db = new  MobileShopConnectionDB();
+            db.Insert(nsx);
+        }
     }
 }

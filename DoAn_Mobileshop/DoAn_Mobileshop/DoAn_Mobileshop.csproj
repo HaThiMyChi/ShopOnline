@@ -186,10 +186,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaiSanPhamAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\MainAdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\NhaSanXuatController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LoaiSanPhamController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhaSanXuatAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiSanPhamController.cs" />
@@ -229,6 +229,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\products\add.png" />
+    <Content Include="images\products\Close.png" />
+    <Content Include="images\products\edit.png" />
     <Content Include="Models\Generated\Database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.cs</LastGenOutput>
@@ -239,8 +242,12 @@
     <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_MainLayoutAdmin.cshtml" />
-    <Content Include="Areas\Admin\Views\NhaSanXuat\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MainAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -300,8 +307,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\LoaiSanPham\" />
-    <Folder Include="Areas\Admin\Views\SanPham\" />
     <Folder Include="Areas\Asset_Admin\bootstrap\" />
     <Folder Include="Areas\Asset_Admin\css\" />
     <Folder Include="Areas\Asset_Admin\font-awesome\" />
@@ -310,7 +315,6 @@
     <Folder Include="Asset\font-awesome\" />
     <Folder Include="Asset\fonts\" />
     <Folder Include="Asset\js\" />
-    <Folder Include="images\products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
