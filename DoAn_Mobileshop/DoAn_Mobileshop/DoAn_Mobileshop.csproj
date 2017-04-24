@@ -295,6 +295,9 @@
     <Content Include="Areas\Asset_Admin\font-awesome\scss\_stacked.scss" />
     <Content Include="Areas\Asset_Admin\font-awesome\scss\_variables.scss" />
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\XoaTam.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\XoaTamLoaiSanPham.cshtml" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -354,6 +357,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\gt\" />
     <Folder Include="Asset\css\" />
     <Folder Include="Asset\font-awesome\" />
     <Folder Include="Asset\fonts\" />

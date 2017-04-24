@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DoAn_Mobileshop.Models.BUS;
+using MobileShopConnection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,8 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
         // GET: Admin/LoaiSanPhamAdmin
         public ActionResult Index()
         {
-            return View();
+            var db = LoaiSanPhamBUS.DanhSachAdmin();
+            return View(db);
         }
 
         // GET: Admin/LoaiSanPhamAdmin/Details/5
@@ -28,11 +31,12 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
 
         // POST: Admin/LoaiSanPhamAdmin/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(LoaiSanPham id)
         {
             try
             {
                 // TODO: Add insert logic here
+                LoaiSanPhamBUS.InsertLoaiSanPham(id);
 
                 return RedirectToAction("Index");
             }
@@ -45,17 +49,19 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
         // GET: Admin/LoaiSanPhamAdmin/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            // load db theo id
+            var db = LoaiSanPhamBUS.ChiTietAdmin(id);
+            return View(db);
         }
 
         // POST: Admin/LoaiSanPhamAdmin/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, LoaiSanPham loaisanpham)
         {
             try
             {
                 // TODO: Add update logic here
-
+                LoaiSanPhamBUS.EditLoaiSanPham(id, loaisanpham);
                 return RedirectToAction("Index");
             }
             catch
@@ -85,5 +91,30 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
                 return View();
             }
         }
+        // POST: Admin/LoaiSanPhamAdmin/xoatamthoi
+        public ActionResult XoaTamLoaiSanPham(int id)
+        {
+            return View(LoaiSanPhamBUS.ChiTietAdmin(id));
+        }
+
+    // POST: Admin/LoaiSanPhamAdmin/Deletexoatam
+
+    [HttpPost]
+    public ActionResult XoaTamLoaiSanPham(int id, LoaiSanPham loaisanpham)
+    {
+        try
+        {
+                // TODO: Add delete logic here
+                loaisanpham.BiXoa = 1;
+                LoaiSanPhamBUS.EditLoaiSanPham(id, loaisanpham);
+                return RedirectToAction("Index");
+        }
+        catch
+        {
+            return View();
+        }
     }
+}
+
+
 }

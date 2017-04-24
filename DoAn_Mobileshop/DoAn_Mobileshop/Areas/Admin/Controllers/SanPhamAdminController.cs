@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAn_Mobileshop.Models.BUS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
         // GET: Admin/SanPham
         public ActionResult Index()
         {
-            return View();
+             return View(MobileShopBUS.DanhSachAdmin());
         }
 
         // GET: Admin/SanPham/Details/5

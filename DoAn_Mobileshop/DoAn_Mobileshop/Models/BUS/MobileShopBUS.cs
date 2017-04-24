@@ -22,7 +22,14 @@ namespace DoAn_Mobileshop.Models.BUS
 
         }
 
-        
+        //-----------Admin
+        public static IEnumerable<SanPham> DanhSachAdmin()
+        {
+            var db = new MobileShopConnectionDB();
+            return db.Query<SanPham>("Select * from SanPham");
+
+        }
+
     }
 }
     

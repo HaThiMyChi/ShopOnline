@@ -1,10 +1,10 @@
-﻿
+﻿@model MobileShopConnection.LoaiSanPham
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
 }
 
-<h2>Create </h2>
+<h2>Edit</h2>
 
 <style>
     input[type=text] {
@@ -32,38 +32,34 @@
             background-color: #45a049;
         }
 
+
 </style>
 
 <div style="margin: auto;">
 
-    @using (Html.BeginForm("Create", "LoaiSanPhamAdmin", FormMethod.Post, new { Styles = "width: 50%; margin: auto;" }))
+    @using (Html.BeginForm("Edit", "LoaiSanPhamAdmin", FormMethod.Post, new { Styles = "width: 50%; margin: auto;" }))
     {
 
         <label for="fname">Mã loại sản phẩm</label>
-            <input type="text" id="fname" name="MaLoaiSanPham" style="background-color: #5d5e63;" placeholder="Vui lòng nhập mã loại sản phẩm" required />
-            <label for="lname">Tên loại sản phẩm</label>
-            <input type="text" id="lname" name="TenLoaiSanPham" style="background-color: #5d5e63;" placeholder="Vui lòng nhập tên loại sản phẩm " required />
+        <input type="text" id="fname" name="MaLoaiSanPham" style="background-color: #5d5e63;" placeholder="Vui lòng nhập mã loại sản phẩm " required value="@Model.MaLoaiSanPham" readonly>
+
+        <label for="lname">Tên nhà sản xuất</label>
+            <input type="text" id="lname" name="TenLoaiSanPham" style="background-color: #5d5e63;" placeholder="Vui lòng nhập tên loại sản phẩm" required value="@Model.TenLoaiSanPham">
 
             <label for="country">Tình trạng</label>
 
             <select id="country" style="width: 10%;background-color: #5d5e63;" name="BiXoa" required>
-                <option value="0" selected>Chưa khóa</option>
+
+                <option value="0">Chưa khóa</option>
                 <option value="1">Đã khóa</option>
+
+
 
             </select>
 
-            <input type="submit" value ="Xác nhận thêm loại sản phẩm">
-
+            <input type="submit" value="Xác nhận sửa thành công">
     }
-
-
 </div>
-
-
-
-
-
-
 
 
 

@@ -1,9 +1,11 @@
-﻿
+﻿@model MobileShopConnection.LoaiSanPham
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "XoaTamLSP";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
 }
-<h2> Create </h2>
+
+<h2>XoaTamLoaiSanPham</h2>
+
 <style>
     input[type=text] {
         width: 100%;
@@ -37,32 +39,27 @@
     }*/
 </style>
 
- <div style="margin: auto;">
+<div style="margin: auto;">
 
-        @using (Html.BeginForm("Create", "NhaSanXuatAdmin", FormMethod.Post, new { Styles = "width: 50%; margin: auto;" }))
-        {
+    @using (Html.BeginForm("XoaTamLoaiSanPham", "LoaiSanPhamAdmin", FormMethod.Post, new { Styles = "width: 50%; margin: auto;" }))
+    {
 
-            <label for="fname">Mã nhà sản xuất</label>
-            <input type="text" id="fname" name="MaNhaSanXuat" style="background-color: #5d5e63;" placeholder="Vui lòng nhập mã nhà sản xuất" required value="@Model.MaNhaSanXuat" readonly>
+        <label for="fname">Mã loại sản phẩm  </label>
+        <input type="text" id="fname" name="MaLoaiSanPham" style="background-color: #5d5e63;" placeholder="Vui lòng nhập mã loại sản phẩm" required value="@Model.MaLoaiSanPham" readonly>
 
-            <label for="lname">Tên nhà sản xuất</label>
-            <input type="text" id="lname" name="TenNhaSanXuat" style="background-color: #5d5e63;" placeholder="Vui lòng nhập tên nhà sản xuất" required value="@Model.TenNhaSanXuat" readonly>
+        <label for="lname">Tên loại sản phẩm</label>
+            <input type="text" id="lname" name="TenLoaiSanPham" style="background-color: #5d5e63;" placeholder="Vui lòng nhập tên loại sản phẩm" required value="@Model.TenLoaiSanPham" readonly>
 
             <label for="country">Tình trạng</label>
 
             <select id="country" style="width: 10%;background-color: #5d5e63;" name="BiXoa" required>
-                <option value="0" selected>Chưa khóa</option>
+                <option value="0">Chưa khóa</option>
                 <option value="1">Đã khóa</option>
 
             </select>
 
-            <input type="submit" value="Thêm nhà sản xuất">
-        }
-        
-        
-    </div>
+            <input type="submit" value="Bạn vui lòng xác nhận xóa">
+    }
 
 
-
-
-
+</div>
