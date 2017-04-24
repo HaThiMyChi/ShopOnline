@@ -1,4 +1,5 @@
 ﻿using DoAn_Mobileshop.Models.BUS;
+using MobileShopConnection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
         // GET: Admin/SanPham
         public ActionResult Index()
         {
-             return View(MobileShopBUS.DanhSachAdmin());
+             return View(MobileShopBUS.DanhSachSPAdmin());
         }
 
         // GET: Admin/SanPham/Details/5
@@ -24,17 +25,18 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
         // GET: Admin/SanPham/Create
         public ActionResult Create()
         {
+            ViewBag.MaNhaSanXuat = new SelectList(NhaSanXuatBUS.DanhSach(), "MaNhaSanXuat", "TenNhaSanXuat");
             return View();
         }
 
         // POST: Admin/SanPham/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(SanPham sanpham)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                MobileShopBUS.InsertSanPham(sanpham);
                 return RedirectToAction("Index");
             }
             catch

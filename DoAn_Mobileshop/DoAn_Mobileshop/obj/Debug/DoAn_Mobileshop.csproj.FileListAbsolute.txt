@@ -153,6 +153,6 @@ C:\Users\ASUS\Desktop\TaiLieuCacMonHoc\LapTrinhWeb2\DoAn_Mobileshop\DoAn_Mobiles
 C:\Users\ASUS\Desktop\TaiLieuCacMonHoc\LapTrinhWeb2\DoAn_Mobileshop\DoAn_Mobileshop\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\ASUS\Desktop\TaiLieuCacMonHoc\LapTrinhWeb2\DoAn_Mobileshop\DoAn_Mobileshop\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\ASUS\Desktop\TaiLieuCacMonHoc\LapTrinhWeb2\DoAn_Mobileshop\DoAn_Mobileshop\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\ASUS\Desktop\TaiLieuCacMonHoc\LapTrinhWeb2\DoAn_Mobileshop\DoAn_Mobileshop\obj\Debug\DoAn_Mobileshop.csprojResolveAssemblyReference.cache
 C:\Users\ASUS\Desktop\TaiLieuCacMonHoc\LapTrinhWeb2\DoAn_Mobileshop\DoAn_Mobileshop\obj\Debug\DoAn_Mobileshop.dll
 C:\Users\ASUS\Desktop\TaiLieuCacMonHoc\LapTrinhWeb2\DoAn_Mobileshop\DoAn_Mobileshop\obj\Debug\DoAn_Mobileshop.pdb
+C:\Users\ASUS\Desktop\TaiLieuCacMonHoc\LapTrinhWeb2\DoAn_Mobileshop\DoAn_Mobileshop\obj\Debug\DoAn_Mobileshop.csprojResolveAssemblyReference.cache

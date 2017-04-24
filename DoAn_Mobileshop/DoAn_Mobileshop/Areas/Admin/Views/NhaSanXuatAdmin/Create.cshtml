@@ -29,24 +29,17 @@
         input[type=submit]:hover {
             background-color: #45a049;
         }
-
-    /*div {
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        padding: 20px;
-    }*/
 </style>
 
- <div style="margin: auto;">
+ <div style="margin:auto;">
 
-        @using (Html.BeginForm("Create", "NhaSanXuatAdmin", FormMethod.Post, new { Styles = "width: 50%; margin: auto;" }))
+        @using (Html.BeginForm("Create", "NhaSanXuatAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
-
             <label for="fname">Mã nhà sản xuất</label>
-            <input type="text" id="fname" name="MaNhaSanXuat" style="background-color: #5d5e63;" placeholder="Vui lòng nhập mã nhà sản xuất" required value="@Model.MaNhaSanXuat" readonly>
+            <input type="text" id="fname" name="MaNhaSanXuat" style="background-color: #5d5e63;" placeholder="Vui lòng nhập mã nhà sản xuất" required>
 
             <label for="lname">Tên nhà sản xuất</label>
-            <input type="text" id="lname" name="TenNhaSanXuat" style="background-color: #5d5e63;" placeholder="Vui lòng nhập tên nhà sản xuất" required value="@Model.TenNhaSanXuat" readonly>
+            <input type="text" id="lname" name="TenNhaSanXuat" style="background-color: #5d5e63;" placeholder="Vui lòng nhập tên nhà sản xuất" required>
 
             <label for="country">Tình trạng</label>
 
@@ -57,8 +50,8 @@
             </select>
 
             <input type="submit" value="Thêm nhà sản xuất">
-        }
         
+        }
         
     </div>
 

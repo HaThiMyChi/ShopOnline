@@ -23,10 +23,17 @@ namespace DoAn_Mobileshop.Models.BUS
         }
 
         //-----------Admin
-        public static IEnumerable<SanPham> DanhSachAdmin()
+        public static IEnumerable<SanPham> DanhSachSPAdmin()
         {
             var db = new MobileShopConnectionDB();
             return db.Query<SanPham>("Select * from SanPham");
+
+        }
+
+        public static void InsertSanPham(SanPham sanpham)
+        {
+            var db = new MobileShopConnectionDB();
+            db.Insert(sanpham);
 
         }
 
