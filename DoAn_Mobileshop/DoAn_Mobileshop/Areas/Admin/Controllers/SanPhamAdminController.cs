@@ -32,6 +32,7 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
 
         // POST: Admin/SanPham/Create
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Create(SanPham sanpham)
         {
             //try
