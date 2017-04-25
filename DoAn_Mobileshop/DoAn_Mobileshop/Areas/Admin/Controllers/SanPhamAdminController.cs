@@ -36,6 +36,7 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
             try
             {
                 // TODO: Add insert logic here
+                
                 MobileShopBUS.InsertSanPham(sanpham);
                 return RedirectToAction("Index");
             }

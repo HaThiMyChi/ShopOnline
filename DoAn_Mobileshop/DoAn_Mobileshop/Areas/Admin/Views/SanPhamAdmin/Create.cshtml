@@ -1,128 +1,130 @@
-﻿
+﻿@model MobileShopConnection.SanPham
+
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
 }
-<script src="~/Areas/Asset_Admin/js/product/previewfile.js"></script>
 
 <h2>Create</h2>
-<style>
-    input[type=text] {
-        width: 100%;
-        height: 40px;
-        background: black;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid blue;
-        border-radius: 4px;
-        box-sizing: border-box;
 
-    }
-    input[type=number] {
-        width: 100%;
-         height: 40px;
-        background: black;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid blue;
-        border-radius: 4px;
-        box-sizing: border-box;
-
-    }
-
- input[type=submit] {
-        width: 100%;
-        background-color: #2a9fd6;
-        color: blue;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
-</style>
-
-@using (Html.BeginForm("Create", "SanPhamAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm()) 
 {
-    <table style="width: 90%; margin: auto; background: black;">
-        <tr>
-            <td>Mã sản phẩm</td>
-            <td><input style="width: 300px; float:left; height: 35px" maxlenght="11" type="text" name="MaSanPham" /></td>
-            <td rowspan="8">
-                <div>
-                    <img id="target" class="img" src="#" alt="your image" style="float:right; width: 320px; height:300px" />
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>Mã loại sản phẩm</td>
-            <td>
-                @*     @Html.DropDownList("MaLoaiSanPham", null, new { @style = "float:left; width: 300px; height: 35px;" });*@
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>SanPham</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaSanPham, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.MaSanPham, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaSanPham, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-            </td>
-        </tr>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenSanPham, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.TenSanPham, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenSanPham, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-        <tr>
-            <td>Mã nhà sản xuất</td>
-            <td>
-                @Html.DropDownList("MaNhaSanXuat", null, new { @style = "float:left; width: 300px; height: 40px; background:black" })
-            </td>
-        </tr>
-        <tr>
-            <td>Tên sản phẩm</td>
-            <td><input style="width: 300px; float:left; height:35px" type="text" name="TenDienThoai" maxlength="11" /></td>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-        </tr>
-        <tr>
-            <td>Mô tả</td>
-            <td>
-                <input style="width: 300px; float: left; height: 35px" type="text" name="MoTa" />
-            </td>
-        </tr>
-        <tr>
-            <td>Xuất xứ</td>
-            <td>
-                <select name="XuatXu" style="float: left; width: 300px; height: 35px; background-color: #5d5e63;">
-                    <option>Made in USA</option>
-                    <option> Made in China </option>
-                    <option>Made in Vietnam</option>
-                </select>
-            </td>
-        </tr>
-      
-        <tr>
-            <td>Giá bán</td>
-            <td>
-                <input style="width: 300px; float: left; height:35px" type="number" name="GiaBan" />
-            </td>
-        </tr>
+        <div class="form-group">
+            @Html.LabelFor(model => model.XuatXu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.XuatXu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.XuatXu, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaNhaSanXuat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.MaNhaSanXuat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaNhaSanXuat, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-        <tr>
-            <td>Hình ảnh</td>
-            <td><input type="file" id="file_Hinh" name="HinhAnh" onchange="previewfile();" style="float:left" /></td>
-        </tr>
+        <div class="form-group">
+            @Html.LabelFor(model => model.GiaBan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.GiaBan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GiaBan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NgayNhap, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.NgayNhap, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgayNhap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoLuongBan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SoLuongBan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoLuongBan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoLuongTon, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SoLuongTon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoLuongTon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaLoaiSanPham, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.MaLoaiSanPham, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaLoaiSanPham, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoLuongXem, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.SoLuongXem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoLuongXem, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HinhAnh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4"><input type="file" name="HinhAnh" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BiXoa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.BiXoa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BiXoa, "", new { @class = "text-danger" })
+            </div>
+        </div>
         
-       @*<tr>
-            <td style="width: 300px;">Cấu hình</td>
-            <td colspan="2"<textarea class="ckeditor" name="CauHinh" style="width: 400px; height: 150px; max-width: 100px; max-height: 600px;" rows="4" cols="30"></textarea></td>
-        </tr>*@
-    </table>
-    <tr>
-        <td colspan="3">
-            <input style="height: 40px; width: 300px; margin-left: 32%; background: #016ABC; color: #fff; border: 1px solid #eee; border-radius: 20px; box-shadow: 5px 5px 5px #eee;"
-                   type="submit" name="btn_ThemsanPham" value="Xác định thêm sản phẩm" />
-
-        </td>
-    </tr>
-
-
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 }
-  
 
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
