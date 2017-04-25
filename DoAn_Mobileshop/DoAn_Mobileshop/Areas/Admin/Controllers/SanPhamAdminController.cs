@@ -77,6 +77,18 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
             //{
             //    // TODO: Add update logic here
             {
+                if (HttpContext.Request.Files.Count > 0)
+                {
+                    var hpf = HttpContext.Request.Files[0];
+                    if (hpf.ContentLength > 0)
+                    {
+                        string fileName = Guid.NewGuid().ToString();
+
+                        string fullPathWithFileName = "/images/products/" + fileName + ".jpg";
+                        hpf.SaveAs(Server.MapPath(fullPathWithFileName));
+                        sp.HinhAnh = fullPathWithFileName;
+                    }
+                }
                 MobileShopBUS.EditSanPham(id, sp);
                 return RedirectToAction("Index");
             }
