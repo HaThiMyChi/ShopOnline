@@ -13,7 +13,7 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
         // GET: Admin/SanPham
         public ActionResult Index()
         {
-             return View(MobileShopBUS.DanhSachSPAdmin());
+            return View(MobileShopBUS.DanhSachSPAdmin());
         }
 
         // GET: Admin/SanPham/Details/5
@@ -26,6 +26,7 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.MaNhaSanXuat = new SelectList(NhaSanXuatBUS.DanhSach(), "MaNhaSanXuat", "TenNhaSanXuat");
+            ViewBag.MaLoaiSanPham = new SelectList(LoaiSanPhamBUS.DanhSach(), "MaLoaiSanPham", "TenLoaiSanPham");
             return View();
         }
 
@@ -33,45 +34,64 @@ namespace DoAn_Mobileshop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(SanPham sanpham)
         {
-            try
+            //try
+            //{
+            // TODO: Add insert logic here
+            if (HttpContext.Request.Files.Count > 0)
             {
-                // TODO: Add insert logic here
-                
-                MobileShopBUS.InsertSanPham(sanpham);
-                return RedirectToAction("Index");
+                var hpf = HttpContext.Request.Files[0];
+                if (hpf.ContentLength > 0)
+                {
+                    string fileName = Guid.NewGuid().ToString();
+
+                    string fullPathWithFileName = "/images/products/" + fileName + ".jpg";
+                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
+                    sanpham.HinhAnh = fullPathWithFileName;
+                }
             }
-            catch
-            {
-                return View();
-            }
+                    MobileShopBUS.InsertSanPham(sanpham);
+            return RedirectToAction("Index");
+            //    }
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
+    
 
         // GET: Admin/SanPham/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ViewBag.MaNhaSanXuat = new SelectList(NhaSanXuatBUS.DanhSach(), "MaNhaSanXuat", "TenNhaSanXuat");
+            ViewBag.MaLoaiSanPham = new SelectList(LoaiSanPhamBUS.DanhSach(), "MaLoaiSanPham", "TenLoaiSanPham");
+            return View(MobileShopBUS.ChiTiet(id));
         }
 
         // POST: Admin/SanPham/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, SanPham sp)
         {
-            try
+            //try
+            //{
+            //    // TODO: Add update logic here
             {
-                // TODO: Add update logic here
-
+                MobileShopBUS.EditSanPham(id, sp);
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+           
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         // GET: Admin/SanPham/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            MobileShopBUS.XoaTamSanPham(id);
+            return RedirectToAction("Index");
         }
 
         // POST: Admin/SanPham/Delete/5
